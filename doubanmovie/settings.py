@@ -70,7 +70,7 @@ ROBOTSTXT_OBEY = False
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'doubanmovie.MoviePipelines.MoviePipeline': 1,
-   'doubanmovie.ImagePipeline.ImagePipeline':100,
+   # 'doubanmovie.ImagePipeline.ImagePipeline':100,
    'doubanmovie.MoviePipelines.DBPipeline':10,
 }
 
