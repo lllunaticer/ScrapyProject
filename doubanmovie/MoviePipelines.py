@@ -61,7 +61,8 @@ class DBPipeline(object):
                 self.connect.commit()
 
         except Exception as error:
-            logging.log(error)
+            print('未成功写入')
+            pass
 
         return item
 
