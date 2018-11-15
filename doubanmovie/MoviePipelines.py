@@ -44,12 +44,12 @@ class DBPipeline(object):
                 """select * from doubanmovie where img_url = %s""",
                 item['img_url'])
             repetition = self.cursor.fetchone()
-
             if repetition:
+                print("Repetition Data!")
                 pass
 
             else:
-                self.cursor.excute(
+                self.cursor.execute(
                     """insert into doubanmovie(name, info, rating, num, quote, img_url) value (%s, %s, %s, %s, %s, %s)""",
                     (item['name'],
                      item['info'],
@@ -57,10 +57,11 @@ class DBPipeline(object):
                      item['num'],
                      item['quote'],
                      item['img_url']))
-
                 self.connect.commit()
 
         except Exception as error:
+            # 打印详细错误信息，使用logging.error函数
+            logging.error(error, exc_info=True)
             print('未成功写入')
             pass
 
